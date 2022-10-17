@@ -1,8 +1,11 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+
 module.exports = {
-  HOST: "localhost",
-  USER: "angelicamariah",
-  PASSWORD: "123456",
-  DB: "test",
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB,
   dialect: "postgres",
   pool: {
     max: 5,
