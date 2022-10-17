@@ -3,6 +3,11 @@ const { Sequelize } = require("sequelize"),
   cors = require("cors"),
   db = require("./models");
 
+require("dotenv").config();
+
+// Session Middleware
+const session = require("express-session");
+
 const PORT = process.env.PORT || 8070;
 
 const main = async () => {
