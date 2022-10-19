@@ -4,7 +4,11 @@ const { Sequelize } = require("sequelize"),
   db = require("./models"),
   cookieParser = require("cookie-parser"),
   session = require("express-session"),
-  path = require("path"); //! see if this works
+  passport = require("passport"),
+  path = require("path");
+
+// configure Passport
+require("./config/passport");
 
 // load .env constants
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
@@ -34,6 +38,10 @@ const main = async () => {
       saveUninitialized: true,
     })
   );
+
+  // mount passport middleware
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   db.sequelize.sync();
 
