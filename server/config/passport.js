@@ -11,8 +11,10 @@ passport.use(
       clientSecret: process.env.GOOGLE_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK,
     },
+    // passport verify callback
     async (accessToken, refreshToken, profile, done) => {
       try {
+        // checks if user Google account already exists
         const existingGoogleAccount = await User.findOne({
           where: { googleId: profile.id },
         });
