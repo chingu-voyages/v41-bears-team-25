@@ -7,7 +7,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get(
-  "/oauth/google",
+  "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
@@ -15,15 +15,15 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "", //! update
-    failureRedirect: "", //! update
+    successRedirect: "/api/object", //! update
+    failureRedirect: "/api/object", //! update
   })
 );
 
 // OAuth Logout Route
 router.get("/logout", (req, res) => {
   req.logout();
-  req.redirect(""); //! update
+  req.redirect("/api/object"); //! update
 });
 
 module.exports = router;
