@@ -20,5 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 // this is where we require all the models from the other files and attach them as db.x and db.y etc...
 db.object = require("./object.model")(sequelize, Sequelize);
+db.user = require("./user.model")(sequelize, Sequelize);
 
 module.exports = db;

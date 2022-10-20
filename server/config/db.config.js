@@ -1,8 +1,11 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+
 module.exports = {
-  HOST: "localhost",
-  USER: "postgres",
-  PASSWORD: "123456",
-  DB: "sequelize-server",
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB,
   dialect: "postgres",
   pool: {
     max: 5,

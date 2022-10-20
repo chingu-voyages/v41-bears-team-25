@@ -2,8 +2,9 @@ const express = require("express");
 const objectController = require("../controllers/objectController");
 
 const router = express.Router();
+const isLoggedIn = require("../controllers/authController");
 
-router.get("/", objectController.findAllObject);
+router.get("/", isLoggedIn, objectController.findAllObject);
 router.post("/", objectController.createObject);
 router.post(
   "/bulkcreatesupersecretdevroute",
