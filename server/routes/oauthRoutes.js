@@ -2,8 +2,8 @@ const router = require("express").Router();
 const passport = require("passport");
 
 // root route
-router.get("/login", (req, res) => {
-  res.render("Welcome to our app!");
+router.get("/", (req, res) => {
+  res.send("Welcome to our app!");
 });
 
 router.get(
@@ -17,8 +17,6 @@ router.get(
   passport.authenticate("google", {
     successRedirect: "/api/object", //! update
     failureRedirect: "/", //! update
-    successMessage: true,
-    failureMessage: true,
   })
 );
 
