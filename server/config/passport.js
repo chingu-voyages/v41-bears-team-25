@@ -1,5 +1,6 @@
 const passport = require("passport");
-const User = require("../models/user.model");
+const db = require("../models");
+const User = db.user;
 
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
@@ -14,14 +15,13 @@ passport.use(
     // passport verify callback
     async (accessToken, refreshToken, profile, done) => {
       try {
+        console.log(profile);
         // checks if user Google account already exists in db
-        console.log("1");
         const existingGoogleAccount = await User.findOne({
           where: { googleId: profile.id },
         });
         // checks if there's user with the email in the db
         if (!existingGoogleAccount) {
-          console.log("2");
           const existingEmailAccount = await User.findOne({
             where: {
               email: profile.emails[0].value,
@@ -29,7 +29,6 @@ passport.use(
           });
           // create a new user in the db
           if (!existingEmailAccount) {
-            console.log("3");
             const newAccount = await User.create({
               name: profile.displayName,
               googleId: profile.id,
@@ -45,6 +44,7 @@ passport.use(
         // if user with googleID existed, return Google account
         return done(null, existingGoogleAccount);
       } catch (error) {
+        console.log(error);
         throw new Error(error);
       }
     }

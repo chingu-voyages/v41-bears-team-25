@@ -3,7 +3,7 @@ const passport = require("passport");
 
 // root route
 router.get("/login", (req, res) => {
-  res.send("Welcome to our app!");
+  res.render("Welcome to our app!");
 });
 
 router.get(
@@ -15,7 +15,7 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/", //! update
+    successRedirect: "/api/object", //! update
     failureRedirect: "/", //! update
     successMessage: true,
     failureMessage: true,
@@ -23,9 +23,13 @@ router.get(
 );
 
 // OAuth Logout Route
-router.get("/logout", (req, res) => {
-  req.logout();
-  req.redirect("/api/object"); //! update
+router.get("/logout", function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+  });
+  res.redirect("/");
 });
 
 module.exports = router;
