@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cd server && nodemon index.js",
-    "frontend": "cd client && npm start"
+    "frontend": "cd client && npm start",
+    "install-client": "cd client && npm install"
   },
   "repository": {
     "type": "git",
