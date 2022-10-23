@@ -1,6 +1,14 @@
-# Title Pending
+# Summary
 
-This is a full stack
+This is a full stack that creates the structure for larger e-commerce enterprise app. It includes a Redux environment and React Query for more complex future development. The backend uses postgresql and sequelize ORM to increase dev speed.
+
+## Contributors
+
+Robert So
+Angelica Shiau
+Biraj
+DNburt
+John B
 
 ## Overview
 
@@ -17,8 +25,6 @@ To run the server on dev: "npm run dev"
 To run the frontend on dev: "npm run frontend"
 
 Create a .env file in the root folder and request variables from our team members.
-
-
 
 ## Dependencies
 
