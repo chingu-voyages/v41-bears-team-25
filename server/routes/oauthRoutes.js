@@ -2,9 +2,9 @@ const router = require("express").Router();
 const passport = require("passport");
 
 // root route
-router.get("/login", (req, res) => {
-  res.render("Welcome to our app!");
-});
+// router.get("/login", (req, res) => {
+//   res.render("Welcome to our app!");
+// });
 
 router.get(
   "/auth/google",
