@@ -29,7 +29,7 @@ const Login = () => {
       >
         <img src={whiteVase} alt="White vase" height="500" />
         <Typography variant="h1">Welcome to App Name</Typography>
-        <Typography variant="h3">
+        <Typography variant="h4">
           We make it easy for everyone to sell their stuff.
         </Typography>
         <Button
