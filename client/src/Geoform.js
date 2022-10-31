@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Geoform from "./src/Geoform";
+import Geoform from "./Geoform";
 
-function ProductDetails(){
+function App() {
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
@@ -13,12 +13,12 @@ function ProductDetails(){
   });
 
   return (
-    <div className="ProductDetails">
+    <div className="App">
       <Geoform location={country} isCountry onChange={setCountry} />
       <Geoform location={state} geoId={country} onChange={setState} />
       <Geoform location={city} geoId={state} onChange={setCity} />
     </div>
   );
-};
+}
 
-export default ProductDetails;
+export default App;
