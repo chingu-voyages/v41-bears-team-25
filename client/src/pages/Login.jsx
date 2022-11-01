@@ -9,7 +9,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  // const googleLoginQuery = useQuery(
+  //   ["googleLogin"],
+  //   () => fetch("/auth/google").then(navigate("/allproducts")) // this might be bugged cause I don't know how Oauth works - it'll navigate to the products page after logging in
+  // );
 
   const googleLoginQuery = useQuery(
     ["googleLogin"],

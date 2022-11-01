@@ -48,6 +48,14 @@ const main = async () => {
   // ROUTES HERE
   app.use("/api/object", require("./routes/objectRoutes"));
   app.use("/", require("./routes/oauthRoutes"));
+  app.get("/home", (req, res) => {
+    res.status(200).json({
+      status: "success",
+      data: {
+        products: ["one", "two"],
+      },
+    });
+  });
 
   try {
     await app.listen(PORT, () => {

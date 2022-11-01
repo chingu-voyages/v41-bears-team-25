@@ -15,8 +15,8 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/api/object", //! update
-    failureRedirect: "/", //! update
+    successRedirect: "/home", //! update
+    failureRedirect: "/auth/google", //! update
     successMessage: true,
     failureMessage: true,
   })
