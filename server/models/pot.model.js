@@ -1,21 +1,21 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize, Sequelize) => {
-  const User = sequelize.define("user", {
+  const Pot = sequelize.define("pot", {
     name: {
-      type: DataTypes.STRING,
-    },
-    googleId: {
       type: DataTypes.STRING,
       required: true,
     },
-    email: {
-      type: DataTypes.STRING,
+    price: {
+      type: DataTypes.FLOAT,
     },
-    avatar: {
+    details: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+    },
+    photo: {
       type: DataTypes.STRING,
     },
   });
 
-  return User;
+  return Pot;
 };
