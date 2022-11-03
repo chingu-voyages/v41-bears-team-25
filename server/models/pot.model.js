@@ -15,6 +15,9 @@ module.exports = (sequelize, Sequelize) => {
     photo: {
       type: DataTypes.STRING,
     },
+    postedBy: {
+      type: DataTypes.STRING,
+    },
   });
 
   return Pot;

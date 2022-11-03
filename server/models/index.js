@@ -16,6 +16,12 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 const db = {};
 
+Object.keys(db).forEach(function (modelName) {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 // this is where we require all the models from the other files and attach them as db.x and db.y etc...
