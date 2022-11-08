@@ -14,4 +14,3 @@ router.post("/delete", objectController.deleteObject);
 router.post("/update", objectController.updateObject);
 
 module.exports = router;
-t
