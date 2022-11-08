@@ -20,5 +20,9 @@ module.exports = (sequelize, Sequelize) => {
     },
   });
 
+  Pot.associate = (models) => {
+    Pot.hasOne(models.user);
+  };
+
   return Pot;
 };
